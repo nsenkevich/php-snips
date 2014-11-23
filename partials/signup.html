@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="well">
+            <form role="form" class="form-wrapper"  name="signupForm" novalidate >
+                <h2 class="page-title">Sign Up</h2>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-user text-muted"></span></div>
+                        <input name="username" type="text" placeholder="User Name" class="form-control" ng-model="username" required/>                                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-envelope text-muted"></span></div>
+                        <input name="email" type="email" placeholder="Email" class="form-control" ng-model="email" required/>                                        
+                    </div> 
+                </div>
+                <div class="form-group">                  
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-lock text-muted"></span></div>
+                        <input name="password" type="password" placeholder="Password" class="form-control" ng-model="password" required/>                                      
+                    </div>
+                </div>     
+                <button class="btn btn-default btn-block btn-custom" ng-disabled="signupForm.$invalid" ng-click="register(username, password, email)">Sign Up</button> 
+            </form>
+            <!--      <form class="form-wrapper">
+                            <h2>Reset Password</h2>                                
+                            <div class="control-group">
+                                <div class="input-prepend">
+                                    <span class="add-on"><i class="icon-envelope"></i></span>
+                                    <input type="text" id="inputEmail" placeholder="Email" class="input-large">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <button type="submit" class="btn btn-primary btn-block btn-custom">Reset</button>
+                            </div>
+                        </form>-->
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

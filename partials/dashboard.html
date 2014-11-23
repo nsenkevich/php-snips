@@ -1,0 +1,61 @@
+<div class="row clearfix">
+    <div class="col-md-12">
+        <h1 ng-cloak ng-show="total_items" class="page-title-small">My Snippets</h1>
+    </div>
+</div>    
+<div class="row">
+    <article ng-repeat="snippet in snippets" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <div class="well well-sm" >
+            <div class="snippet-block clearfix">
+                <h3 class="snippet-title">
+                    <a href="#/snippets/{{snippet.slug}}">
+                        {{snippet.title| limitTo: 21 }}{{snippet.title.length > 21 ? ' ...' : ''}}
+                    </a>
+                    <span class="pull-right"> 
+                        <a href="#/update/{{snippet.slug}}" class="glyphicon glyphicon-edit"></a>
+                        <a  ng-click="deleteSnippet(snippet)" class="glyphicon glyphicon-remove"></a>
+                    </span>
+                </h3> 
+                <div class="clearfix">
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-thumbs-up icon-marged text-muted"></span>{{snippet.likes}}
+                        <span class="glyphicon glyphicon-eye-open icon-marged text-muted"></span>0                        
+                    </span>  
+                    <p class="text-muted xsmall">
+                        {{snippet.dtc.date| limitTo: 10}}
+                    </p>
+                </div>
+                <div class="separate-top">
+                    <p class="description">
+                        {{snippet.description| limitTo: 49 }}{{snippet.description.length > 49 ? ' ...' : ''}}
+                    </p>
+                </div>                
+                <p class="text-muted xsmall">Categories:<span ng-repeat="cat in snippet.categories">
+                        <a ng-click="getSnippetsByCategory(cat.category)"> {{cat.category}} </a>
+                    </span>
+                </p>
+                <div class="separate-top padded-top">
+                    <p class="text-muted xsmall">Tags:
+                        <span class="label" ng-repeat="cat in snippet.categories">
+                            <a ng-click="getSnippetsByCategory(cat.category)">{{cat.category}}</a>
+                        </span>
+                    </p>
+                </div>                              
+            </div>
+        </div> 
+    </article>
+</div>
+<div ng-cloak ng-show="total_items" class="row">
+    <div class="col-md-3"></div>
+    <div id="paginate" class="col-md-6">
+        <pagination
+            total-items="total_items" 
+            items-per-page="page_size"
+            num-pages="page_count"
+            ng-model="page"
+            ng-change="getSnippetsByPage(page)"
+            class="pagination">
+        </pagination>
+    </div>
+    <div class="col-md-3"></div>
+</div>

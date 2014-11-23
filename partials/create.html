@@ -1,0 +1,84 @@
+<section class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h1 class="page-title-small">New Snippet</h1>
+        ﻿<div class="well"> 
+            <div class="form-wrapper">
+                <form ng-if="!snippet.id" name="snippetForm" novalidate ng-submit="createSnippet(snippet)">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input 
+                            name="title" 
+                            type="text" 
+                            class="form-control" 
+                            required 
+                            ng-model="snippet.title" 
+                            ng-maxlength="100" 
+                            ng-minlength="10">
+                        <div class="error" ng-show="snippetForm.title.$invalid && snippetForm.title.$dirty">
+                            {{getError(snippetForm.title.$error)}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea 
+                            name="description" 
+                            class="form-control" 
+                            required ng-model="snippet.description" 
+                            ng-maxlength="500" 
+                            ng-minlength="20">
+                        </textarea>
+                        <div class="error" ng-show="snippetForm.description.$invalid && snippetForm.description.$dirty">
+                            {{getError(snippetForm.description.$error)}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="code">Code</label>
+                        <div class="code-box">
+                            <textarea 
+                                ui-codemirror-opts="{lineWrapping : true, lineNumbers: true, mode: 'text/x-php'}"
+                                name="code" 
+                                class="form-control" 
+                                ng-model="snippet.code" 
+                                required 
+                                ui-codemirror>
+                            </textarea>
+                        </div>
+                        <div class="error" ng-show="snippetForm.code.$invalid && snippetForm.code.$dirty">
+                            {{getError(snippetForm.code.$error)}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="categories">Categories</label>
+                        <select 
+                            class="form-control"
+                            name="categories"
+                            multiple 
+                            ng-multiple="true" 
+                            ng-model="snippet.categories" 
+                            required
+                            ng-options="category.category as category.category for category in loadCategories">
+                            <option value="">(Pick Category)</option>
+                        </select>
+                        <div class="error" ng-show="snippetForm.categories.$invalid && snippetForm.categories.$dirty">
+                            {{getError(snippetForm.categories.$error)}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Tags</label>
+                        <tags-input name="tags" ng-model="snippet.tags">
+                            <auto-complete source="loadTags($query)"></auto-complete>
+                        </tags-input>
+                        <div class="error" ng-show="snippetForm.tags.$invalid && snippetForm.tags.$dirty">
+                            {{getError(snippetForm.tags.$error)}}
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-custom" ng-disabled="snippetForm.$invalid">Add Snippet</button>
+                    </div>
+                </form>
+            </div>
+        </div>   
+    </div>
+    <div class="col-md-2"></div>
+</section>

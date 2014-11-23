@@ -1,0 +1,67 @@
+<div class="container-fluid">      
+    <div class="row">
+        <div class="col-md-9">
+            <div class="well well-large">
+                <article class="padded">
+                    <h1 class="snippet-title">{{snippet.title}}</h1>
+                    <p class="muted xsmall">01.01.2015 By <a>{{snippet.userId}}</a></p>
+                    <p class="xsmall">
+                        {{snippet.description}}                                   
+                    </p> 
+                    <div class="code-box">
+                        <ui-codemirror 
+                            ui-codemirror-opts="{
+                            lineWrapping : true, 
+                            lineNumbers: true, 
+                            readOnly: 'nocursor', 
+                            mode: 'text/x-php'
+                            }"
+                            ng-model="snippet.code">
+                        </ui-codemirror>                      
+                    </div>
+                </article>
+            </div>
+            <dir-disqus disqus-shortname='phpsnips'
+                        disqus-identifier="{{ snippet.slug}}"
+                        disqus_title="{{ snippet.title}}">
+            </dir-disqus>    
+        </div>
+        <div class="col-md-3">
+            <div class="well well-large">
+                <aside class="padded">
+                    <h6 class="asside-title">Status</h6>
+                    <div class="separate-top clearfix">                                                                         
+                        <p class="marged-left" ng-controller="likeController">
+                            <a ng-click="likeClick(snippet)" ng-init="liked = 'Like';
+                                                    likeCount = snippet.likes">
+                                <span class="glyphicon glyphicon-thumbs-up icon-marged text-muted"></span> 
+                                {{snippet.likes}} Likes
+                            </a>
+                        </p>
+                        <p class="marged-left"><span class="glyphicon glyphicon-eye-open icon-marged gray"></span>0 Views</p>
+                    </div>
+                    <h6 class="asside-title">Categories</h6>
+                    <div class="separate-top">
+                        <ul class="list" ng-repeat="cat in snippet.categories">
+                            <li>
+                                <a>{{cat.category_id}}</a>
+                            </li>                        
+                        </ul>                                                                     
+                    </div>
+                    <h6 class="asside-title">Tags</h6>
+                    <div class="separate-top">
+                        <ul class="list" ng-repeat="tag in snippet.tags">
+                            <li>
+                                <span class="label">
+                                    <a ng-click="getSnippetsByTag(tag.text)"> {{tag.text}}</a>   
+                                </span>
+                            </li>
+                        </ul>                                                                   
+                    </div>  
+                </aside>
+
+            </div>
+        </div>
+    </div> 
+</div>
+
