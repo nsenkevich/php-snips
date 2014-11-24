@@ -14,7 +14,7 @@
 //    interceptor - {Object=} - The interceptor object has two optional methods - response and responseError. Both response and responseError interceptors get called with http response object. See $http interceptors.
 
 angular.module('snippetService', ['hyperResource'])
-        .constant('snippetsUrl', 'http://apigility/snippets/')
+        .constant('snippetsUrl', 'http://api.php-snips.com/snippets/')
         .factory('snippetService', function(hResource, snippetsUrl) {
             return hResource(snippetsUrl + ':id', {},
                     {

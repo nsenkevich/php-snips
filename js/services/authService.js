@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('authService', [])
-        .constant("baseUrl", "http://apigility")
+        .constant("baseUrl", "http://api.php-snips.com")
         .factory('authService', function($http, $cookies, $cookieStore, baseUrl) {
             return {
                 login: function(credentials) {

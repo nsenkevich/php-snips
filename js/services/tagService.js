@@ -14,7 +14,7 @@
 //    interceptor - {Object=} - The interceptor object has two optional methods - response and responseError. Both response and responseError interceptors get called with http response object. See $http interceptors.
 
 angular.module('tagService', [])
-        .constant('tagsUrl', 'http://apigility/tags')
+        .constant('tagsUrl', 'http://api.php-snips.com/tags')
         .factory('tagService', function($http, tagsUrl) {
             return  {
                 showAll: function() {

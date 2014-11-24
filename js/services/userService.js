@@ -14,7 +14,7 @@
 //    interceptor - {Object=} - The interceptor object has two optional methods - response and responseError. Both response and responseError interceptors get called with http response object. See $http interceptors.
 
 angular.module('userService', [])
-        .constant('usersUrl', 'http://apigility/users')
+        .constant('usersUrl', 'http://api.php-snips.com/users')
         .factory('userService', function($http, usersUrl, $cookies) {
             return  {
                 showAll: function() {

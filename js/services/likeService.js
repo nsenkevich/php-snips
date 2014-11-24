@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('likeService', [])
-        .constant("likeUrl", "http://apigility/likes")
+        .constant("likeUrl", "http://api.php-snips.com/likes")
         .factory('likeService', function($http, likeUrl) {
             return {
                 add: function(snippetId) {
