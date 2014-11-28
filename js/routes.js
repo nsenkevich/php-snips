@@ -4,6 +4,9 @@ app.config(
             $httpProvider.interceptors.push('httpInterceptor');
 
             $routeProvider
+                    .when('/about', {
+                        templateUrl: 'partials/about.html'
+                    })
                     .when('/', {
                         templateUrl: 'partials/snippets.html', controller: 'snippetListController'
                     })
