@@ -15,25 +15,29 @@
     <body ng-app="snippetApp">
         <div id="wrap">
             <header id="header">
-                <div class="container">            
+                <div class="container clearfix">            
                     <div class="row" ng-controller="headController">                                       
                         <div class="col-md-3">
                             <h1 class="logo" ng-class="{ active: isActive('/')}"><a href="/"><span>PHP</span>snips</a></h1>
                         </div>
-                        <div class="col-md-5">
-                            <span ng-cloak ng-class="{ active: isActive('/create')}"><a class="btn btn-custom" href="#/create">Add Snippet</a></span>
+                        <div class="col-md-9">
+                            <div class="pull-left">
+                                <span ng-cloak ng-class="{ active: isActive('/create')}">
+                                    <a class="btn btn-custom" href="#/create">Add Snippet</a>
+                                </span>
+                            </div>
+                            <div class="pull-right">
+                                <nav>
+                                    <ul class="nav nav-pills pull-right navigation">
+                                        <li ng-cloak ng-show="isLogin()" ng-class="{ active: isActive('/favorites')}"><a href="#/favorites">Favorites</a></li>
+                                        <li ng-cloak ng-show="isLogin()" ng-class="{ active: isActive('/dashboard')}"><a href="#/dashboard">My Snips</a></li>
+                                        <li ng-cloak ng-show="isLogin()" ng-class="{ active: isActive('/logout')}"><a href="#/logout">Logout</a></li>
+                                        <li ng-cloak ng-hide="isLogin()" ng-class="{ active: isActive('/login')}"><a href="#/login">Login</a></li>
+                                        <li ng-cloak ng-hide="isLogin()" ng-class="{ active: isActive('/signup')}"><a href="#/signup">Sign Up</a></li>
+                                    </ul>  
+                                </nav>
+                            </div>             
                         </div>
-                        <div class="col-md-4">
-                            <nav>
-                                <ul class="nav nav-pills pull-right navigation">
-                                    <li ng-cloak ng-show="isLogin()" ng-class="{ active: isActive('/favorites')}"><a href="#/favorites">Favorites</a></li>
-                                    <li ng-cloak ng-show="isLogin()" ng-class="{ active: isActive('/dashboard')}"><a href="#/dashboard">My Snips</a></li>
-                                    <li ng-cloak ng-show="isLogin()" ng-class="{ active: isActive('/logout')}"><a href="#/logout">Logout</a></li>
-                                    <li ng-cloak ng-hide="isLogin()" ng-class="{ active: isActive('/login')}"><a href="#/login">Login</a></li>
-                                    <li ng-cloak ng-hide="isLogin()" ng-class="{ active: isActive('/signup')}"><a href="#/signup">Sign Up</a></li>
-                                </ul>  
-                            </nav>
-                        </div>             
                     </div>
             </header>
             <div class="container"> 
@@ -57,21 +61,23 @@
         <footer id="footer"> 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <nav class="navbar" role="navigation">
-                            <ul class="nav navbar-nav navigation-sub">
-                                <li><a href="#/">Home</a></li>
-                                <li><a href="#/about">About</a></li>
-                            </ul> 
-                        </nav>
+                    <div class="col-md-12">
+                        <div class="pull-left">
+                            <nav class="navbar" role="navigation">
+                                <ul class="nav navbar-nav navigation-sub">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                </ul> 
+                            </nav>
+                        </div>
+                        <div class="pull-right">
+                            <ul class="nav-social pull-right">
+                                <li><a href=""><i class="fa fa-github fa2"></i></a></li> 
+                                <li><a href=""><i class="fa fa-twitter fa2"></i>|</a></li>                             
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <ul class="nav-social pull-right">
-                            <li><a href=""><i class="fa fa-github fa2"></i></a></li> 
-                            <li><a href=""><i class="fa fa-twitter fa2"></i>|</a></li>                             
-                        </ul>
-                    </div>
-                </div>
+                </div> 
             </div> 
         </footer>    
 
@@ -89,40 +95,39 @@
         <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script type="text/javascript" src="lib/angular-hyper-resource.js"></script>
 
-        </script>
-        <!--        Codemirror-->
-        <script src="bower_components/codemirror/lib/codemirror.js"></script>
-        <!--        <script src="//codemirror.net/addon/edit/matchbrackets.js"></script>
-                <script src="//codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
-                <script src="//codemirror.net/mode/xml/xml.js"></script>
-                <script src="//codemirror.net/mode/javascript/javascript.js"></script>
-                <script src="//codemirror.net/mode/css/css.js"></script>-->
-        <script src="bower_components/codemirror/mode/clike/clike.js"></script>
-        <script src="bower_components/codemirror/mode/php/php.js"></script>
+    <!--        Codemirror-->
+    <script src="bower_components/codemirror/lib/codemirror.js"></script>
+    <!--        <script src="//codemirror.net/addon/edit/matchbrackets.js"></script>
+            <script src="//codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
+            <script src="//codemirror.net/mode/xml/xml.js"></script>
+            <script src="//codemirror.net/mode/javascript/javascript.js"></script>
+            <script src="//codemirror.net/mode/css/css.js"></script>-->
+    <script src="bower_components/codemirror/mode/clike/clike.js"></script>
+    <script src="bower_components/codemirror/mode/php/php.js"></script>
 
 
-        <!--        project javascript-->
-        <script type="text/javascript" src="js/app.js"></script>
+    <!--        project javascript-->
+    <script type="text/javascript" src="js/app.js"></script>
 
-        <script type="text/javascript" src="js/routes.js"></script>
-        <script type="text/javascript" src="js/httpInterceptor.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script type="text/javascript" src="js/httpInterceptor.js"></script>
 
-        <script type="text/javascript" src="js/services/authService.js"></script>
-        <script type="text/javascript" src="js/services/snippetService.js"></script>
-        <script type="text/javascript" src="js/services/categoryService.js"></script>
-        <script type="text/javascript" src="js/services/tagService.js"></script>
-        <script type="text/javascript" src="js/services/userService.js"></script>
-        <script type="text/javascript" src="js/services/likeService.js"></script>
+    <script type="text/javascript" src="js/services/authService.js"></script>
+    <script type="text/javascript" src="js/services/snippetService.js"></script>
+    <script type="text/javascript" src="js/services/categoryService.js"></script>
+    <script type="text/javascript" src="js/services/tagService.js"></script>
+    <script type="text/javascript" src="js/services/userService.js"></script>
+    <script type="text/javascript" src="js/services/likeService.js"></script>
 
-        <script type="text/javascript" src="js/controllers/headController.js"></script>
-        <script type="text/javascript" src="js/controllers/authController.js"></script>
-        <script type="text/javascript" src="js/controllers/snippetController.js"></script>
-        <script type="text/javascript" src="js/controllers/userController.js"></script>
-        <script type="text/javascript" src="js/controllers/likeController.js"></script>
+    <script type="text/javascript" src="js/controllers/headController.js"></script>
+    <script type="text/javascript" src="js/controllers/authController.js"></script>
+    <script type="text/javascript" src="js/controllers/snippetController.js"></script>
+    <script type="text/javascript" src="js/controllers/userController.js"></script>
+    <script type="text/javascript" src="js/controllers/likeController.js"></script>
 
-        <script type="text/javascript" src="js/directives/ng-tags-input.min.js"></script> 
-        <script type="text/javascript" src="js/directives/ui-codemirror.js"></script>
-        <script type="text/javascript" src="js/directives/ui-paginator.js"></script> 
-        <script type="text/javascript" src="js/directives/dirDisqus.js"></script>
-    </body>
+    <script type="text/javascript" src="js/directives/ng-tags-input.min.js"></script> 
+    <script type="text/javascript" src="js/directives/ui-codemirror.js"></script>
+    <script type="text/javascript" src="js/directives/ui-paginator.js"></script> 
+    <script type="text/javascript" src="js/directives/dirDisqus.js"></script>
+</body>
 </html>
