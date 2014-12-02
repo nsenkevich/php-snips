@@ -1,0 +1,380 @@
+$main-font:'Source Sans Pro', sans-serif;
+$logo-font: 'Audiowide', cursive;
+$bace-gray: #444;
+$deep-violet: #5022ac;
+$paper-white: #fafafa;
+@mixin box-shadow($left:0, $top:1px, $blur:2px, $color:darken( $paper-white, 20% ), $inset:"") {
+    -webkit-box-shadow:$left $top $blur $color #{$inset};
+    -moz-box-shadow:$left $top $blur $color #{$inset};
+    box-shadow:$left $top $blur $color #{$inset};
+}
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+    background-clip: padding-box;
+}
+body, html {
+    height: 100%;
+}
+a{
+    color: $deep-violet;
+    cursor: pointer;  
+    &:hover{
+        outline: 0;
+        text-decoration: none;
+        color: lighten( $deep-violet, 10%);
+    }
+}
+body{
+    background: rgba( $deep-violet, .1);
+    font: 100% $main-font;
+    color: $bace-gray;
+    p{
+        font-size: 14px;
+        line-height: 180%;
+    }
+    a,
+    &:visited,
+        &:active,
+        &:after,
+        &:focus{
+        outline: 0;
+        text-decoration: none;
+        color: $deep-violet; 
+    }
+}
+.padded{
+    padding: 0 20px 0 20px;
+}
+.snippet-block{
+    padding: 0 10px 0 10px;
+}
+.separate-top{
+    border-top: 1px solid darken( $paper-white, 10%);
+    padding: 5px 0 0 0;
+}
+.xsmall{
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.description{
+    color: lighten( $bace-gray, 10%);
+}
+.load{
+    color: $deep-violet;
+    font-size: 16px;
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+#header{
+    background: $paper-white;
+    overflow: hidden;
+    margin-bottom: 10px;
+    @include box-shadow();
+    padding: 20px 0 20px 0;
+}
+#footer{
+    background: $paper-white;
+    overflow: hidden;
+    @include box-shadow(0px, -1px, 2px);
+    padding: 20px 0 20px 0; 
+}
+#wrap{
+    height: auto !important;
+    margin: 0 auto -60px;
+    min-height: 100%;
+    padding: 0 0 60px;
+}
+body .well{
+    background: $paper-white;
+    @include box-shadow(0px, 1px, 1px);
+    border: none;
+}
+.logo{
+    text-shadow: 0px 1px 1px darken( $paper-white, 30% );
+    font-weight: 100;
+    margin: 10px 0 10px 0;
+    a{
+        text-decoration: none;
+        font-size: 20px;
+        color: $deep-violet;
+        font-style: italic;
+    }
+    span{
+        text-decoration: none;
+        font:  100% $logo-font;
+        font-style: italic;
+        color: $bace-gray;
+        font-size: 35px;
+    }
+}
+.navigation{
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-top: 10px;
+    li{
+        a{
+            border: 1px solid $deep-violet;
+            padding: 10px;
+            margin-left: 10px;
+            font-size: 16px; 
+            &:hover, &:focus{
+                background: $deep-violet;
+                color: $paper-white;
+            }
+        }
+    }
+}
+.navigation-sub li{
+    a{
+        font-size: 12px;
+        padding: 5px 8px 5px 8px;
+         border: 1px solid $paper-white; 
+        &:hover,&:active{
+            background: $deep-violet;
+            color: $paper-white; 
+            border: 1px solid lighten( $deep-violet, 10%);
+            @include border-radius(3px);  
+        }
+    }  
+}
+nav .nav-pills li.active a{
+    background: $deep-violet;
+    color: $paper-white; 
+    &:hover, 
+        &:focus{
+        background: $deep-violet;
+        color: $paper-white;   
+    }  
+}
+.nav-social li{
+    float: right;
+    margin: 0 0 0 4px;
+    font-size: 18px; 
+    list-style: none;
+    a{ 
+        text-decoration: none;
+        color: lighten( $bace-gray, 30%); 
+        :hover{
+            text-decoration: none;
+            color: lighten( $bace-gray, 30%);
+        }
+    }
+}
+.nav-social li{
+    float: right;
+    margin: 0 0 0 4px;
+    font-size: 18px; 
+    a i{
+        padding: 0 4px 0 0;
+        color: lighten( $deep-violet, 10%);
+        &:hover{
+            color: lighten( $bace-gray, 30%);
+        }
+    }
+}
+.navbar {
+    margin-bottom: 0px;
+    min-height: 30px;
+}
+#header .btn{
+    padding: 8px;
+    margin-top: 10px;
+}
+.btn-custom{
+    color: $deep-violet; 
+    border: 1px solid $deep-violet;
+    background: $paper-white;
+    background-image: none;
+    font-size: 16px;
+    text-shadow: none;
+    font-weight: bold;
+    text-transform: uppercase; 
+    &:hover,
+        &:active{
+        color: $paper-white;
+        background: $deep-violet;
+    }
+}
+.link-custom{
+    font-weight: bold;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+.label{
+    background: $paper-white;
+    border: 1px solid $deep-violet;
+    margin-right: 3px;
+    text-transform: uppercase;
+    display: inline-block;
+    &:hover{
+        background: $deep-violet;
+    }
+    a{
+        text-shadow: none;
+        padding: 3px;
+        &:hover{
+            text-decoration: none;
+            color: $paper-white;
+        }
+    }
+}
+.snippet-title{
+    font-size: 30px;
+    line-height: 125%;
+    font-weight: 100;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    margin-top: 0px;
+    a{
+        color: $bace-gray;
+        &:hover{
+            color: lighten( $deep-violet, 10%);
+            text-decoration: none;
+        }
+    }
+    span{
+        margin-top: -10px; 
+        margin-right: -10px; 
+        a{
+            font-size: 15px;
+            color: $deep-violet; 
+            &:hover,
+                &:active{
+                color: lighten( $deep-violet, 10% );
+                text-decoration: none;
+            }
+        }
+    }
+}      
+.name{
+    font-weight: bold;
+}
+.icon-marged{
+    margin: 0 5px 0 5px;;
+}
+.marged-left{
+    margin-left: 10px;
+}
+.padded-top{
+    padding-top: 10px;
+}
+body .list{
+    margin-left: 5px;
+    padding-left: 10px;
+    li{
+        list-style: none;
+        margin-bottom: 5px;
+    }
+}
+.alert{
+    text-align: center;
+}
+.page-title{
+    font-weight:100;
+    color: $deep-violet;
+}
+.page-title-small{
+    font-weight: 100;
+    color: $deep-violet;
+    font-size: 30px;
+    margin-top: 0px;
+}
+.asside-title{
+    font-size: 20px;
+    font-weight: 100;
+}
+.main-search{
+    margin-top: 17px;
+}
+#paginate{
+    text-align: center;
+    ul li a{
+        color: $deep-violet;
+        &:hover,
+            &:focus{
+            color: $deep-violet;
+        }
+    }
+}
+#paginate .pagination > .disabled > a{
+    color: lighten( $bace-gray, 30%);; 
+    background-color: darken( $paper-white, 10%);;
+}
+#paginate .pagination > .active > a, 
+#paginate .pagination > .active > span, 
+#paginate .pagination > .active > a:hover, 
+#paginate .pagination > .active > span:hover, 
+#paginate .pagination > .active > a:focus, 
+#paginate .pagination > .active > span:focus {
+    background-color: $deep-violet;
+    border-color:lighten( $deep-violet, 10% );
+    color: $paper-white;   
+}
+/* Forms */
+input[type="button"]:disabled,
+input[type="submit"]:disabled, 
+input[type="reset"]:disabled, 
+input[type="file"]:disabled::-webkit-file-upload-button, 
+button:disabled, 
+select:disabled, 
+keygen:disabled, 
+optgroup:disabled, 
+option:disabled, 
+select[disabled] > option{ 
+}
+.input-group-addon{
+    background: rgba( $deep-violet, .1);
+    border: 1px solid lighten( $deep-violet, 50% );
+}
+.input-group-addon .glyphicon{
+    color: $deep-violet;
+}
+.form-wrapper{
+    padding: 0 25px 0 25px;
+    label{
+        color: $deep-violet;
+        font-weight: normal;
+        text-transform: uppercase;
+    }
+    .form-control{
+        border: 1px solid darken( $paper-white, 10% );
+        color: #666;
+        @include border-radius(3px); 
+        &:focus{
+            @include box-shadow(0px, 0px, 3px, lighten( $deep-violet, 30% ));
+        }
+    }
+} 
+.code-box{
+    border: 1px solid darken( $paper-white, 10% );
+    background-color: $paper-white;
+    border-left: 2px solid $deep-violet;
+    @include border-radius(3px);
+    padding: 0px;
+}
+.form-wrapper .tags{
+    border: 1px solid darken( $paper-white, 10% );  
+    @include border-radius(3px);
+    box-shadow: none;
+}
+.form-wrapper tags-input .tags .tag-item{
+    @include border-radius(3px);
+    border: 1px solid $deep-violet;
+    color: $deep-violet;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    background-image: none;
+    background-color:  $paper-white;
+}
+.form-wrapper tags-input .tags .tag-item a{
+    color: $deep-violet;  
+}
+.error{
+    font-size: 13px;
+    color: #cc3a3a;
+    padding-top: 10px;
+}
